@@ -1,0 +1,31 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  width="32"
+  height="32"
+  fill="none"
+>
+  <!-- Speaker -->
+  <path
+    d="M8 24h10l14-12v40L18 40H8z"
+    fill="currentColor"
+  />
+
+  <!-- Inner sound wave -->
+  <path
+    d="M38 26c3 3 3 9 0 12"
+    stroke="currentColor"
+    stroke-width="4"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- Outer sound wave -->
+  <path
+    d="M44 22c6 6 6 18 0 24"
+    stroke="currentColor"
+    stroke-width="4"
+    stroke-linecap="round"
+    fill="none"
+  />
+</svg>

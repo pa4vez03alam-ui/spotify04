@@ -1,0 +1,67 @@
+[
+    {
+        "folder": "jeet",
+        "title": "On Repeat",
+        "description": "All my favourite tracks"
+    },
+    {
+        "folder": "justin",
+        "title": "Justin Bieber",
+        "description": "Justin Bieber's most played songs"
+    },
+    {
+        "folder": "wekand",
+        "title": "Weekend",
+        "description": "Smooth R&B for late-night listenig"
+    },
+    {
+        "folder": "hans",
+        "title": "Hans Zimmer",
+        "description": "Powerful cinematic music by hans Zimmer"
+    },
+    {
+        "folder": "karan",
+        "title": "Karan Aujla",
+        "description": "The sound of modern punjabi rap"
+    },
+    {
+        "folder": "diljit",
+        "title": "Diljit Doshan",
+        "description": "Swag,style,and Punjabi beats"
+    },
+    {
+        "folder": "arijit",
+        "title": "Arijit Singh",
+        "description": "Soulful and emotional melodies"
+    },
+    {
+        "folder": "AR",
+        "title": "A.R. Rahman",
+        "description": "Where melody meets feeling"
+    },
+    {
+        "folder": "travis",
+        "title": "Travis Scott",
+        "description": "Trippy beats and midnight energy"
+    },
+    {
+        "folder": "KK",
+        "title": "Forever KK",
+        "description": "Songs that never fade"
+    },
+    {
+        "folder": "hindi",
+        "title": "Hindi Essentials",
+        "description": "The best of Hindi music, all in one place"
+    },
+    {
+        "folder": "phonk",
+        "title": "Phonk Mode",
+        "description": "Hard hitting phonk for maximum energy"
+    },
+    {
+        "folder": "hiteng",
+        "title": "Hit English Song",
+        "description": "Popular songs for every mood"
+    }
+]
