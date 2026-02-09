@@ -30,54 +30,52 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getSongs(folder) {
     currfolder = folder;
-    let a = await fetch(`/${folder}/`);
-    let response = await a.text();
-    let div = document.createElement("div")
-    div.innerHTML = response;
-    let as = div.getElementsByTagName("a")
 
-    songs = []
+    let res = await fetch("songs/songs.json");
+    let data = await res.json();
 
-    for (let index = 0; index < as.length; index++) {
-        const element = as[index];
+    let folderName = folder.split("/").pop();
+    songs = data[folderName];
 
-        if (element.href.endsWith(".mp3")) {
+    let songUL = document.querySelector(".songList ul");
+    songUL.innerHTML = "";
 
-            songs.push(decodeURIComponent(element.href).split(/[/\\]/).pop())
-
-
-        }
-
-    }
-    //Show all the song in the playlist
-    let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0]
-    songUL.innerHTML = ""
     for (const song of songs) {
-        songUL.innerHTML = songUL.innerHTML + `<li>
-                            <img class="invert" src="img/music.svg" alt="">
-                            <div class="info">
-                                <div>${song.replaceAll("%20", " ")}</div>
-                                <div>Jeet</div>
-                            </div>
-                            <div class="playnow">
-                                <span>Play Now</span>
-                                <img class="invert" height="34px" src="img/play2.svg" alt="">
-                            </div></li>`;
-
+        songUL.innerHTML += `
+        <li>
+            <img class="invert" src="img/music.svg">
+            <div class="info">
+                <div>${song}</div>
+                <div>${folderName}</div>
+            </div>
+            <div class="playnow">
+                <span>Play Now</span>
+                <img class="invert" src="img/play2.svg">
+            </div>
+        </li>`;
     }
 
-    //Attach an event listener to each song
-    Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
-        e.addEventListener("click", () => {
-            let track = e.querySelector(".info").firstElementChild.innerHTML.trim();
+    Array.from(songUL.children).forEach(li => {
+        li.addEventListener("click", () => {
+            let track = li.querySelector(".info div").innerText;
             playMusic(track);
+        });
+    });
+}
 
-        })
+//Attach an event listener to each song
+Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
+    e.addEventListener("click", () => {
+        let track = e.querySelector(".info").firstElementChild.innerHTML.trim();
+        playMusic(track);
+
     })
+})
 }
 
 const playMusic = (track, pause = false) => {
-    currentSong.src = `${currfolder}/${track}`
+   currentSong.src = `${currfolder}/${encodeURIComponent(track)}`;
+
 
     if (!pause) {
         currentSong.play()
