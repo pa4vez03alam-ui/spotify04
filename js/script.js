@@ -35,7 +35,7 @@ async function getSongs(folder) {
     let data = await res.json();
 
     let folderName = folder.split("/").pop();
-    songs = data[folderName];
+    songs = data[folderName] || [];
 
     let songUL = document.querySelector(".songList ul");
     songUL.innerHTML = "";
@@ -63,6 +63,7 @@ async function getSongs(folder) {
     });
 }
 
+
 //Attach an event listener to each song
 Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
     e.addEventListener("click", () => {
@@ -74,7 +75,7 @@ Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEa
 
 
 const playMusic = (track, pause = false) => {
-   currentSong.src = `${currfolder}/${encodeURIComponent(track)}`;
+    currentSong.src = `${currfolder}/${encodeURIComponent(track)}`;
 
 
     if (!pause) {
