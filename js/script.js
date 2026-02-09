@@ -71,7 +71,7 @@ Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEa
 
     })
 })
-}
+
 
 const playMusic = (track, pause = false) => {
    currentSong.src = `${currfolder}/${encodeURIComponent(track)}`;
