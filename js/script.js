@@ -27,11 +27,10 @@ function secondsToMinutesSeconds(seconds) {
     return `${formattedMinutes}:${formattedSeconds}`;
 }
 
-
 async function getSongs(folder) {
     currfolder = folder;
 
-    let res = await fetch("songs/songs.json");
+    let res = await fetch("/spotify04/songs/songs.json");
     let data = await res.json();
 
     let folderName = folder.split("/").pop();
@@ -39,6 +38,11 @@ async function getSongs(folder) {
 
     let songUL = document.querySelector(".songList ul");
     songUL.innerHTML = "";
+
+    if (songs.length === 0) {
+        songUL.innerHTML = "<li>No songs found</li>";
+        return;
+    }
 
     for (const song of songs) {
         songUL.innerHTML += `
@@ -64,18 +68,8 @@ async function getSongs(folder) {
 }
 
 
-//Attach an event listener to each song
-Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
-    e.addEventListener("click", () => {
-        let track = e.querySelector(".info").firstElementChild.innerHTML.trim();
-        playMusic(track);
-
-    })
-})
-
-
 const playMusic = (track, pause = false) => {
-    currentSong.src = `${currfolder}/${encodeURIComponent(track)}`;
+    currentSong.src = `/spotify04/${currfolder}/${encodeURIComponent(track)}`;
 
 
     if (!pause) {
@@ -92,7 +86,7 @@ const playMusic = (track, pause = false) => {
 
 
 async function disPlayAlbums() {
-    let res = await fetch("songs/albums.json");
+    let res = await fetch("/spotify04/songs/albums.json");
     let albums = await res.json();
 
     let cardContainer = document.querySelector(".cardContainer");
@@ -106,7 +100,7 @@ async function disPlayAlbums() {
                     <path d="M5 20V4L19 12L5 20Z" fill="#000"/>
                 </svg>
             </div>
-            <img src="songs/${album.folder}/cover.jpg">
+          <img src="/spotify04/songs/${album.folder}/cover.jpg">
             <h2>${album.title}</h2>
             <p>${album.description}</p>
         </div>`;
