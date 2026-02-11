@@ -108,7 +108,8 @@ async function disPlayAlbums() {
                     <path d="M5 20V4L19 12L5 20Z" fill="#000"/>
                 </svg>
             </div>
-            <img src="/songs/${album.folder}/cover.jpg" alt="">
+         <img src="songs/${album.folder}/cover.jpg">
+
             <h2>${album.title}</h2>
             <p>${album.description}</p>
         </div>`;
