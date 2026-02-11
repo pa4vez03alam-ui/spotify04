@@ -93,7 +93,8 @@ const playMusic = (track, pause = false) => {
 
 
 async function disPlayAlbums() {
-    let res = await fetch("/songs/albums.json");
+    let res = await fetch("songs/albums.json");
+
     let albums = await res.json();
 
     let cardContainer = document.querySelector(".cardContainer");
