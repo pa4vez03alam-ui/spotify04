@@ -69,14 +69,14 @@ async function getSongs(folder) {
     });
 }
 
-
 const playMusic = (track, pause = false) => {
     currentSong.src = `${currfolder}/${track}`;
-
 
     if (!pause) {
         currentSong.play();
         play.src = "img/pause.svg";
+    } else {
+        play.src = "img/play.svg";
     }
 
     document.querySelector(".songinfo").innerHTML = track;
@@ -110,8 +110,9 @@ async function disPlayAlbums() {
         card.addEventListener("click", async () => {
             await getSongs(`songs/${card.dataset.folder}`);
             if (songs.length > 0) {
-                playMusic(songs[0]);
+                playMusic(songs[0], true);
             }
+
 
         });
     });
