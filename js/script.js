@@ -93,7 +93,7 @@ const playMusic = (track, pause = false) => {
 
 
 async function disPlayAlbums() {
-   let res = await fetch("songs/albums.json");
+    let res = await fetch("songs/albums.json");
 
     let albums = await res.json();
 
@@ -108,7 +108,7 @@ async function disPlayAlbums() {
                     <path d="M5 20V4L19 12L5 20Z" fill="#000"/>
                 </svg>
             </div>
-            <img src="/songs/${album.folder}/cover.jpg" alt="">
+            <img src="songs/${album.folder}/cover.jpg" alt="">
             <h2>${album.title}</h2>
             <p>${album.description}</p>
         </div>`;
