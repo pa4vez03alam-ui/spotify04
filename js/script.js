@@ -115,6 +115,12 @@ async function disPlayAlbums() {
 
         });
     });
+    // Auto load first album
+    const firstCard = document.querySelector(".card");
+    if (firstCard) {
+        firstCard.click();
+    }
+
 }
 
 
